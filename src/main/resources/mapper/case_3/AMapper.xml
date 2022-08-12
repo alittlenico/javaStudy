@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nico.case_3.mapper.AMapper">
+    <resultMap id="baseMap" type="com.nico.case_3.A">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <collection property="list" select="findBList" column="{a_id=id}">
+        </collection>
+    </resultMap>
+    <resultMap id="bBaseMap" type="com.nico.case_3.B">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="a_id" property="aId"/>
+    </resultMap>
+    <select id="findBList" resultMap="bBaseMap">
+        select * from b where a_id = #{a_id}
+    </select>
+    <select id="findAList" resultMap="baseMap">
+        select * from a
+    </select>
+</mapper>
