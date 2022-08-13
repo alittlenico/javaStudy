@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class City {
+public class City implements Cloneable{
     private Long id;
     private String province;
     private String city;
@@ -22,5 +22,10 @@ public class City {
         this.province = province;
         this.city = city;
         this.area = area;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
