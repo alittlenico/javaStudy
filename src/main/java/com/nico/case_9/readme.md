@@ -1,0 +1,2 @@
+采用构造器注入,使用autowire注解怎么指定各个字段的name?
+直接在字段处加上Quanlifier选择名字
