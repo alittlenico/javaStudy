@@ -7,25 +7,30 @@ package com.nico.test;
  * @date 2022/10/11 14:44
  */
 
-public class Demo {
+public class InnerClassTest {
     public static void main(String[] args) {
-        Outer.InnerClz innerClz = new Outer().new InnerClz();
+
     }
 }
 
 class Outer {
+    private boolean flag;
 
-    public Outer() {
-
+    public Outer(boolean flag) {
+        this.flag = flag;
     }
 
-    void init() {
+    public void init(boolean flag) {
+        class InnerClz {
+
+            public void say() {
+                if (flag) {
+                    System.out.println("hello world");
+                }
+            }
+        }
         InnerClz innerClz = new InnerClz();
     }
 
-    public class InnerClz {
-        public InnerClz() {
 
-        }
-    }
 }
