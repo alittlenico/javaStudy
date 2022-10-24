@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nico.case_12.mapper.TestMapper">
+  <resultMap id="BaseResultMap" type="com.nico.case_12.entity.Test">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="meter_id" jdbcType="VARCHAR" property="meterId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="zxygzdn" jdbcType="VARCHAR" property="zxygzdn" />
+    <result column="zxygfl1dn" jdbcType="VARCHAR" property="zxygfl1dn" />
+    <result column="zxygfl2dn" jdbcType="VARCHAR" property="zxygfl2dn" />
+    <result column="zxygfl3dn" jdbcType="VARCHAR" property="zxygfl3dn" />
+    <result column="zxygfl4dn" jdbcType="VARCHAR" property="zxygfl4dn" />
+    <result column="zxwgzdn" jdbcType="VARCHAR" property="zxwgzdn" />
+    <result column="zxwgfl1dn" jdbcType="VARCHAR" property="zxwgfl1dn" />
+    <result column="zxwgfl2dn" jdbcType="VARCHAR" property="zxwgfl2dn" />
+    <result column="zxwgfl3dn" jdbcType="VARCHAR" property="zxwgfl3dn" />
+    <result column="zxwgfl4dn" jdbcType="VARCHAR" property="zxwgfl4dn" />
+    <result column="fxygzdn" jdbcType="VARCHAR" property="fxygzdn" />
+    <result column="fxygfl1dn" jdbcType="VARCHAR" property="fxygfl1dn" />
+    <result column="fxygfl2dn" jdbcType="VARCHAR" property="fxygfl2dn" />
+    <result column="fxygfl3dn" jdbcType="VARCHAR" property="fxygfl3dn" />
+    <result column="fxygfl4dn" jdbcType="VARCHAR" property="fxygfl4dn" />
+    <result column="fxwgzdn" jdbcType="VARCHAR" property="fxwgzdn" />
+    <result column="fxwgfl1dn" jdbcType="VARCHAR" property="fxwgfl1dn" />
+    <result column="fxwgfl2dn" jdbcType="VARCHAR" property="fxwgfl2dn" />
+    <result column="fxwgfl3dn" jdbcType="VARCHAR" property="fxwgfl3dn" />
+    <result column="fxwgfl4dn" jdbcType="VARCHAR" property="fxwgfl4dn" />
+    <result column="Axdy" jdbcType="VARCHAR" property="axdy" />
+    <result column="Bxdy" jdbcType="VARCHAR" property="bxdy" />
+    <result column="Cxdy" jdbcType="VARCHAR" property="cxdy" />
+    <result column="Axdl" jdbcType="VARCHAR" property="axdl" />
+    <result column="Bxdl" jdbcType="VARCHAR" property="bxdl" />
+    <result column="Cxdl" jdbcType="VARCHAR" property="cxdl" />
+    <result column="zyggl" jdbcType="VARCHAR" property="zyggl" />
+    <result column="Axyggl" jdbcType="VARCHAR" property="axyggl" />
+    <result column="Bxyggl" jdbcType="VARCHAR" property="bxyggl" />
+    <result column="Cxyggl" jdbcType="VARCHAR" property="cxyggl" />
+    <result column="zwggl" jdbcType="VARCHAR" property="zwggl" />
+    <result column="Axwggl" jdbcType="VARCHAR" property="axwggl" />
+    <result column="Bxwggl" jdbcType="VARCHAR" property="bxwggl" />
+    <result column="Cxwggl" jdbcType="VARCHAR" property="cxwggl" />
+    <result column="zglys" jdbcType="VARCHAR" property="zglys" />
+    <result column="Axgglys" jdbcType="VARCHAR" property="axgglys" />
+    <result column="Bxgglys" jdbcType="VARCHAR" property="bxgglys" />
+    <result column="Cxgglys" jdbcType="VARCHAR" property="cxgglys" />
+    <result column="zszgl" jdbcType="VARCHAR" property="zszgl" />
+    <result column="Axszgl" jdbcType="VARCHAR" property="axszgl" />
+    <result column="Bxszgl" jdbcType="VARCHAR" property="bxszgl" />
+    <result column="Cxszgl" jdbcType="VARCHAR" property="cxszgl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, meter_id, create_time, zxygzdn, zxygfl1dn, zxygfl2dn, zxygfl3dn, zxygfl4dn, zxwgzdn, 
+    zxwgfl1dn, zxwgfl2dn, zxwgfl3dn, zxwgfl4dn, fxygzdn, fxygfl1dn, fxygfl2dn, fxygfl3dn, 
+    fxygfl4dn, fxwgzdn, fxwgfl1dn, fxwgfl2dn, fxwgfl3dn, fxwgfl4dn, Axdy, Bxdy, Cxdy, 
+    Axdl, Bxdl, Cxdl, zyggl, Axyggl, Bxyggl, Cxyggl, zwggl, Axwggl, Bxwggl, Cxwggl, zglys, 
+    Axgglys, Bxgglys, Cxgglys, zszgl, Axszgl, Bxszgl, Cxszgl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meter_data
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from meter_data
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.nico.case_12.entity.Test">
+    insert into meter_data (id, meter_id, create_time, 
+      zxygzdn, zxygfl1dn, zxygfl2dn, 
+      zxygfl3dn, zxygfl4dn, zxwgzdn, 
+      zxwgfl1dn, zxwgfl2dn, zxwgfl3dn, 
+      zxwgfl4dn, fxygzdn, fxygfl1dn, 
+      fxygfl2dn, fxygfl3dn, fxygfl4dn, 
+      fxwgzdn, fxwgfl1dn, fxwgfl2dn, 
+      fxwgfl3dn, fxwgfl4dn, Axdy, 
+      Bxdy, Cxdy, Axdl, Bxdl, 
+      Cxdl, zyggl, Axyggl, 
+      Bxyggl, Cxyggl, zwggl, 
+      Axwggl, Bxwggl, Cxwggl, 
+      zglys, Axgglys, Bxgglys, 
+      Cxgglys, zszgl, Axszgl, 
+      Bxszgl, Cxszgl)
+    values (#{id,jdbcType=BIGINT}, #{meterId,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{zxygzdn,jdbcType=VARCHAR}, #{zxygfl1dn,jdbcType=VARCHAR}, #{zxygfl2dn,jdbcType=VARCHAR}, 
+      #{zxygfl3dn,jdbcType=VARCHAR}, #{zxygfl4dn,jdbcType=VARCHAR}, #{zxwgzdn,jdbcType=VARCHAR}, 
+      #{zxwgfl1dn,jdbcType=VARCHAR}, #{zxwgfl2dn,jdbcType=VARCHAR}, #{zxwgfl3dn,jdbcType=VARCHAR}, 
+      #{zxwgfl4dn,jdbcType=VARCHAR}, #{fxygzdn,jdbcType=VARCHAR}, #{fxygfl1dn,jdbcType=VARCHAR}, 
+      #{fxygfl2dn,jdbcType=VARCHAR}, #{fxygfl3dn,jdbcType=VARCHAR}, #{fxygfl4dn,jdbcType=VARCHAR}, 
+      #{fxwgzdn,jdbcType=VARCHAR}, #{fxwgfl1dn,jdbcType=VARCHAR}, #{fxwgfl2dn,jdbcType=VARCHAR}, 
+      #{fxwgfl3dn,jdbcType=VARCHAR}, #{fxwgfl4dn,jdbcType=VARCHAR}, #{axdy,jdbcType=VARCHAR}, 
+      #{bxdy,jdbcType=VARCHAR}, #{cxdy,jdbcType=VARCHAR}, #{axdl,jdbcType=VARCHAR}, #{bxdl,jdbcType=VARCHAR}, 
+      #{cxdl,jdbcType=VARCHAR}, #{zyggl,jdbcType=VARCHAR}, #{axyggl,jdbcType=VARCHAR}, 
+      #{bxyggl,jdbcType=VARCHAR}, #{cxyggl,jdbcType=VARCHAR}, #{zwggl,jdbcType=VARCHAR}, 
+      #{axwggl,jdbcType=VARCHAR}, #{bxwggl,jdbcType=VARCHAR}, #{cxwggl,jdbcType=VARCHAR}, 
+      #{zglys,jdbcType=VARCHAR}, #{axgglys,jdbcType=VARCHAR}, #{bxgglys,jdbcType=VARCHAR}, 
+      #{cxgglys,jdbcType=VARCHAR}, #{zszgl,jdbcType=VARCHAR}, #{axszgl,jdbcType=VARCHAR}, 
+      #{bxszgl,jdbcType=VARCHAR}, #{cxszgl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nico.case_12.entity.Test">
+    insert into meter_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="meterId != null">
+        meter_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="zxygzdn != null">
+        zxygzdn,
+      </if>
+      <if test="zxygfl1dn != null">
+        zxygfl1dn,
+      </if>
+      <if test="zxygfl2dn != null">
+        zxygfl2dn,
+      </if>
+      <if test="zxygfl3dn != null">
+        zxygfl3dn,
+      </if>
+      <if test="zxygfl4dn != null">
+        zxygfl4dn,
+      </if>
+      <if test="zxwgzdn != null">
+        zxwgzdn,
+      </if>
+      <if test="zxwgfl1dn != null">
+        zxwgfl1dn,
+      </if>
+      <if test="zxwgfl2dn != null">
+        zxwgfl2dn,
+      </if>
+      <if test="zxwgfl3dn != null">
+        zxwgfl3dn,
+      </if>
+      <if test="zxwgfl4dn != null">
+        zxwgfl4dn,
+      </if>
+      <if test="fxygzdn != null">
+        fxygzdn,
+      </if>
+      <if test="fxygfl1dn != null">
+        fxygfl1dn,
+      </if>
+      <if test="fxygfl2dn != null">
+        fxygfl2dn,
+      </if>
+      <if test="fxygfl3dn != null">
+        fxygfl3dn,
+      </if>
+      <if test="fxygfl4dn != null">
+        fxygfl4dn,
+      </if>
+      <if test="fxwgzdn != null">
+        fxwgzdn,
+      </if>
+      <if test="fxwgfl1dn != null">
+        fxwgfl1dn,
+      </if>
+      <if test="fxwgfl2dn != null">
+        fxwgfl2dn,
+      </if>
+      <if test="fxwgfl3dn != null">
+        fxwgfl3dn,
+      </if>
+      <if test="fxwgfl4dn != null">
+        fxwgfl4dn,
+      </if>
+      <if test="axdy != null">
+        Axdy,
+      </if>
+      <if test="bxdy != null">
+        Bxdy,
+      </if>
+      <if test="cxdy != null">
+        Cxdy,
+      </if>
+      <if test="axdl != null">
+        Axdl,
+      </if>
+      <if test="bxdl != null">
+        Bxdl,
+      </if>
+      <if test="cxdl != null">
+        Cxdl,
+      </if>
+      <if test="zyggl != null">
+        zyggl,
+      </if>
+      <if test="axyggl != null">
+        Axyggl,
+      </if>
+      <if test="bxyggl != null">
+        Bxyggl,
+      </if>
+      <if test="cxyggl != null">
+        Cxyggl,
+      </if>
+      <if test="zwggl != null">
+        zwggl,
+      </if>
+      <if test="axwggl != null">
+        Axwggl,
+      </if>
+      <if test="bxwggl != null">
+        Bxwggl,
+      </if>
+      <if test="cxwggl != null">
+        Cxwggl,
+      </if>
+      <if test="zglys != null">
+        zglys,
+      </if>
+      <if test="axgglys != null">
+        Axgglys,
+      </if>
+      <if test="bxgglys != null">
+        Bxgglys,
+      </if>
+      <if test="cxgglys != null">
+        Cxgglys,
+      </if>
+      <if test="zszgl != null">
+        zszgl,
+      </if>
+      <if test="axszgl != null">
+        Axszgl,
+      </if>
+      <if test="bxszgl != null">
+        Bxszgl,
+      </if>
+      <if test="cxszgl != null">
+        Cxszgl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="meterId != null">
+        #{meterId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygzdn != null">
+        #{zxygzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl1dn != null">
+        #{zxygfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl2dn != null">
+        #{zxygfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl3dn != null">
+        #{zxygfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl4dn != null">
+        #{zxygfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgzdn != null">
+        #{zxwgzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl1dn != null">
+        #{zxwgfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl2dn != null">
+        #{zxwgfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl3dn != null">
+        #{zxwgfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl4dn != null">
+        #{zxwgfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygzdn != null">
+        #{fxygzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl1dn != null">
+        #{fxygfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl2dn != null">
+        #{fxygfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl3dn != null">
+        #{fxygfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl4dn != null">
+        #{fxygfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgzdn != null">
+        #{fxwgzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl1dn != null">
+        #{fxwgfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl2dn != null">
+        #{fxwgfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl3dn != null">
+        #{fxwgfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl4dn != null">
+        #{fxwgfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="axdy != null">
+        #{axdy,jdbcType=VARCHAR},
+      </if>
+      <if test="bxdy != null">
+        #{bxdy,jdbcType=VARCHAR},
+      </if>
+      <if test="cxdy != null">
+        #{cxdy,jdbcType=VARCHAR},
+      </if>
+      <if test="axdl != null">
+        #{axdl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxdl != null">
+        #{bxdl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxdl != null">
+        #{cxdl,jdbcType=VARCHAR},
+      </if>
+      <if test="zyggl != null">
+        #{zyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="axyggl != null">
+        #{axyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxyggl != null">
+        #{bxyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxyggl != null">
+        #{cxyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="zwggl != null">
+        #{zwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="axwggl != null">
+        #{axwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxwggl != null">
+        #{bxwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxwggl != null">
+        #{cxwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="zglys != null">
+        #{zglys,jdbcType=VARCHAR},
+      </if>
+      <if test="axgglys != null">
+        #{axgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="bxgglys != null">
+        #{bxgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="cxgglys != null">
+        #{cxgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="zszgl != null">
+        #{zszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="axszgl != null">
+        #{axszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxszgl != null">
+        #{bxszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxszgl != null">
+        #{cxszgl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nico.case_12.entity.Test">
+    update meter_data
+    <set>
+      <if test="meterId != null">
+        meter_id = #{meterId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygzdn != null">
+        zxygzdn = #{zxygzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl1dn != null">
+        zxygfl1dn = #{zxygfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl2dn != null">
+        zxygfl2dn = #{zxygfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl3dn != null">
+        zxygfl3dn = #{zxygfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxygfl4dn != null">
+        zxygfl4dn = #{zxygfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgzdn != null">
+        zxwgzdn = #{zxwgzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl1dn != null">
+        zxwgfl1dn = #{zxwgfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl2dn != null">
+        zxwgfl2dn = #{zxwgfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl3dn != null">
+        zxwgfl3dn = #{zxwgfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="zxwgfl4dn != null">
+        zxwgfl4dn = #{zxwgfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygzdn != null">
+        fxygzdn = #{fxygzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl1dn != null">
+        fxygfl1dn = #{fxygfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl2dn != null">
+        fxygfl2dn = #{fxygfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl3dn != null">
+        fxygfl3dn = #{fxygfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxygfl4dn != null">
+        fxygfl4dn = #{fxygfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgzdn != null">
+        fxwgzdn = #{fxwgzdn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl1dn != null">
+        fxwgfl1dn = #{fxwgfl1dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl2dn != null">
+        fxwgfl2dn = #{fxwgfl2dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl3dn != null">
+        fxwgfl3dn = #{fxwgfl3dn,jdbcType=VARCHAR},
+      </if>
+      <if test="fxwgfl4dn != null">
+        fxwgfl4dn = #{fxwgfl4dn,jdbcType=VARCHAR},
+      </if>
+      <if test="axdy != null">
+        Axdy = #{axdy,jdbcType=VARCHAR},
+      </if>
+      <if test="bxdy != null">
+        Bxdy = #{bxdy,jdbcType=VARCHAR},
+      </if>
+      <if test="cxdy != null">
+        Cxdy = #{cxdy,jdbcType=VARCHAR},
+      </if>
+      <if test="axdl != null">
+        Axdl = #{axdl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxdl != null">
+        Bxdl = #{bxdl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxdl != null">
+        Cxdl = #{cxdl,jdbcType=VARCHAR},
+      </if>
+      <if test="zyggl != null">
+        zyggl = #{zyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="axyggl != null">
+        Axyggl = #{axyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxyggl != null">
+        Bxyggl = #{bxyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxyggl != null">
+        Cxyggl = #{cxyggl,jdbcType=VARCHAR},
+      </if>
+      <if test="zwggl != null">
+        zwggl = #{zwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="axwggl != null">
+        Axwggl = #{axwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxwggl != null">
+        Bxwggl = #{bxwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxwggl != null">
+        Cxwggl = #{cxwggl,jdbcType=VARCHAR},
+      </if>
+      <if test="zglys != null">
+        zglys = #{zglys,jdbcType=VARCHAR},
+      </if>
+      <if test="axgglys != null">
+        Axgglys = #{axgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="bxgglys != null">
+        Bxgglys = #{bxgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="cxgglys != null">
+        Cxgglys = #{cxgglys,jdbcType=VARCHAR},
+      </if>
+      <if test="zszgl != null">
+        zszgl = #{zszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="axszgl != null">
+        Axszgl = #{axszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="bxszgl != null">
+        Bxszgl = #{bxszgl,jdbcType=VARCHAR},
+      </if>
+      <if test="cxszgl != null">
+        Cxszgl = #{cxszgl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nico.case_12.entity.Test">
+    update meter_data
+    set meter_id = #{meterId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      zxygzdn = #{zxygzdn,jdbcType=VARCHAR},
+      zxygfl1dn = #{zxygfl1dn,jdbcType=VARCHAR},
+      zxygfl2dn = #{zxygfl2dn,jdbcType=VARCHAR},
+      zxygfl3dn = #{zxygfl3dn,jdbcType=VARCHAR},
+      zxygfl4dn = #{zxygfl4dn,jdbcType=VARCHAR},
+      zxwgzdn = #{zxwgzdn,jdbcType=VARCHAR},
+      zxwgfl1dn = #{zxwgfl1dn,jdbcType=VARCHAR},
+      zxwgfl2dn = #{zxwgfl2dn,jdbcType=VARCHAR},
+      zxwgfl3dn = #{zxwgfl3dn,jdbcType=VARCHAR},
+      zxwgfl4dn = #{zxwgfl4dn,jdbcType=VARCHAR},
+      fxygzdn = #{fxygzdn,jdbcType=VARCHAR},
+      fxygfl1dn = #{fxygfl1dn,jdbcType=VARCHAR},
+      fxygfl2dn = #{fxygfl2dn,jdbcType=VARCHAR},
+      fxygfl3dn = #{fxygfl3dn,jdbcType=VARCHAR},
+      fxygfl4dn = #{fxygfl4dn,jdbcType=VARCHAR},
+      fxwgzdn = #{fxwgzdn,jdbcType=VARCHAR},
+      fxwgfl1dn = #{fxwgfl1dn,jdbcType=VARCHAR},
+      fxwgfl2dn = #{fxwgfl2dn,jdbcType=VARCHAR},
+      fxwgfl3dn = #{fxwgfl3dn,jdbcType=VARCHAR},
+      fxwgfl4dn = #{fxwgfl4dn,jdbcType=VARCHAR},
+      Axdy = #{axdy,jdbcType=VARCHAR},
+      Bxdy = #{bxdy,jdbcType=VARCHAR},
+      Cxdy = #{cxdy,jdbcType=VARCHAR},
+      Axdl = #{axdl,jdbcType=VARCHAR},
+      Bxdl = #{bxdl,jdbcType=VARCHAR},
+      Cxdl = #{cxdl,jdbcType=VARCHAR},
+      zyggl = #{zyggl,jdbcType=VARCHAR},
+      Axyggl = #{axyggl,jdbcType=VARCHAR},
+      Bxyggl = #{bxyggl,jdbcType=VARCHAR},
+      Cxyggl = #{cxyggl,jdbcType=VARCHAR},
+      zwggl = #{zwggl,jdbcType=VARCHAR},
+      Axwggl = #{axwggl,jdbcType=VARCHAR},
+      Bxwggl = #{bxwggl,jdbcType=VARCHAR},
+      Cxwggl = #{cxwggl,jdbcType=VARCHAR},
+      zglys = #{zglys,jdbcType=VARCHAR},
+      Axgglys = #{axgglys,jdbcType=VARCHAR},
+      Bxgglys = #{bxgglys,jdbcType=VARCHAR},
+      Cxgglys = #{cxgglys,jdbcType=VARCHAR},
+      zszgl = #{zszgl,jdbcType=VARCHAR},
+      Axszgl = #{axszgl,jdbcType=VARCHAR},
+      Bxszgl = #{bxszgl,jdbcType=VARCHAR},
+      Cxszgl = #{cxszgl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
