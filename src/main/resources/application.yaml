@@ -19,4 +19,19 @@ mybatis:
 
 logging:
   level:
-    com.nico.case_3.mapper: DEBUG
+    # TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+    com.nico: DEBUG
+
+# 线程池配置信息 自定义配置
+async:
+  executor:
+    thread:
+      # 核心线程数 cpu核心*2+2
+      core_pool_size: 30
+      # 配置最大线程数
+      max_pool_size: 30
+      # 配置队列大小
+      queue_capacity: 99988
+      # 线程前缀
+      name:
+        prefix: nico-t
