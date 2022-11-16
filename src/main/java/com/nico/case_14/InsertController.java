@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 import java.time.Duration;
+=======
+>>>>>>> 2e95e9a2bb6d0f5a9b899afd89d01cceb252a41a
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,7 +51,10 @@ public class InsertController {
             countDownLatch.await();
             LocalDateTime end = LocalDateTime.now();
             log.info("结束:{}",end);
+<<<<<<< HEAD
             log.info("花费:{}", Duration.between(start, end).toSeconds());
+=======
+>>>>>>> 2e95e9a2bb6d0f5a9b899afd89d01cceb252a41a
         } catch (Exception e) {
             e.printStackTrace();
         }
