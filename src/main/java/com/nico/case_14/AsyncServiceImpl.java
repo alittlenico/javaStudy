@@ -3,10 +3,7 @@ package com.nico.case_14;
 import com.nico.case_14.domain.MeterDataFactorBaseMapping;
 import com.nico.case_14.mapper.MeterDataFactorBaseMappingMapper;
 import lombok.extern.slf4j.Slf4j;
-<<<<<<< HEAD
 import org.springframework.scheduling.annotation.Async;
-=======
->>>>>>> 2e95e9a2bb6d0f5a9b899afd89d01cceb252a41a
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,10 +19,7 @@ import java.util.concurrent.CountDownLatch;
 @Slf4j
 public class AsyncServiceImpl implements AsyncService{
 
-<<<<<<< HEAD
     @Async("asyncServiceExecutor")
-=======
->>>>>>> 2e95e9a2bb6d0f5a9b899afd89d01cceb252a41a
     public void executeAsync(List<MeterDataFactorBaseMapping> records,
                              MeterDataFactorBaseMappingMapper mapper, CountDownLatch countDownLatch) {
         try{
