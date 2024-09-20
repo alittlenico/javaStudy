@@ -35,7 +35,7 @@ public class TaskExecute {
     /**
      * 初始化启动
      */
-//    @PostConstruct
+    @PostConstruct
     public void init(){
 
         log.info("开始持续处理任务");
@@ -70,7 +70,7 @@ public class TaskExecute {
                     //设置返回结果
                     String randomStr = getRandomStr(DEFAULT_STR_LEN);
                     // 获取到任务后 休息4秒再设置结果 DeferredResult必超时
-                    Thread.sleep(1000L);
+                    Thread.sleep(8000L);
                     ResponseMsg<String> responseMsg = new ResponseMsg<String>(0, "success", randomStr);
 
                     log.info("返回结果:{}", responseMsg);
@@ -78,11 +78,11 @@ public class TaskExecute {
                     task.getTaskResult().setResult(responseMsg);
                 }
 
-                int time = random.nextInt(10);
+//                int time = random.nextInt(10);
 
 //                log.info("处理间隔：{}秒",time);
 
-                Thread.sleep(1*1000L);
+//                Thread.sleep(1*1000L);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

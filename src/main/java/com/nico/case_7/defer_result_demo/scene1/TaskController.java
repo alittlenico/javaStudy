@@ -15,7 +15,8 @@ import org.springframework.web.context.request.async.DeferredResult;
  * @description: TODO
  * @date 2022/10/7 18:03
  */
-//@RestController
+@RequestMapping("/case_7/scene1")
+@RestController("scene1")
 public class TaskController {
 
     private static final Logger log = LoggerFactory.getLogger(TaskController.class);
@@ -24,7 +25,7 @@ public class TaskController {
     private static final ResponseMsg<String> OUT_OF_TIME_RESULT = new ResponseMsg<>(-1,"超时","out of time");
 
     //超时时间
-    private static final long OUT_OF_TIME = 3000L;
+    private static final long OUT_OF_TIME = 10000L;
 
     @Autowired
     private TaskQueue taskQueue;

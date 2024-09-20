@@ -14,10 +14,11 @@ import java.util.concurrent.Callable;
 /**
  * @author liuyi
  * @version 1.0
- * @description: TODO
+ * @description: 采用callable同样会阻塞多个请求,但不会在获取结果处阻塞，可以执行下一条语句
  * @date 2022/10/7 17:42
  */
-//@RestController
+@RestController("callable")
+@RequestMapping("/case_7/callable")
 public class TaskController {
 
     private static final Logger log = LoggerFactory.getLogger(TaskController.class);
@@ -30,9 +31,7 @@ public class TaskController {
 
         log.info("接收请求，开始处理...");
 
-        Callable<ResponseMsg<String>> result = (()->{
-            return taskService.getResult();
-        });
+        Callable<ResponseMsg<String>> result = (()-> taskService.getResult());
 
         log.info("接收任务线程完成并退出");
 

@@ -1,12 +1,18 @@
 package com.nico.case_13;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apiguardian.api.API;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +22,7 @@ import java.util.Map;
  * @description: TODO
  * @date 2022/11/15 15:53
  */
-
+@Api(tags = "case13")
 @RestController
 @RequestMapping("/case13")
 @Slf4j(topic = "测试springboot前后端接收参数")
@@ -50,7 +56,7 @@ public class SpringBootParamTestController {
      * @param map
      */
     @GetMapping(value = "/get04")
-    public void get04(@RequestBody Map<String, Object> map) {
+    public void get04(@RequestParam @RequestBody Map<String, Object> map) {
         log.info("/get04");
         map.forEach((k,v) -> {
             log.info("k:{}",k);
@@ -162,5 +168,34 @@ public class SpringBootParamTestController {
             }
         }
         return "Fail";
+    }
+
+    @ApiOperation("测试")
+    @ApiImplicitParam(name = "user",value = "user的json表示")
+    @PostMapping("/testSwagger")
+    public void testSwagger(@RequestBody User user) {
+
+    }
+
+    /**
+     * 验证不使用@RequestParam获取不到值
+     * @param age
+     * @param name
+     */
+    @ApiOperation("测试")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "age",value = "",paramType = "query"),
+            @ApiImplicitParam(name = "name",value = "",paramType = "query")
+    })
+    @GetMapping("/testSwagger2")
+    public void testSwagger2(Integer age, String name) {
+        log.info(String.valueOf(age));
+        log.info(name);
+    }
+
+    @PostMapping("/testParamArray")
+    public void testParamArray(@RequestBody String ids) {
+        System.out.println(ids);
+//        Arrays.stream(ids).forEach(System.out::println);
     }
 }

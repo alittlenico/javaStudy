@@ -15,11 +15,11 @@ import java.util.concurrent.CountDownLatch;
  * @description: TODO
  * @date 2022/11/15 22:01
  */
-@Service
+//@Service
 @Slf4j
 public class AsyncServiceImpl implements AsyncService{
 
-    @Async("asyncServiceExecutor")
+//    @Async("asyncServiceExecutor")
     public void executeAsync(List<MeterDataFactorBaseMapping> records,
                              MeterDataFactorBaseMappingMapper mapper, CountDownLatch countDownLatch) {
         try{

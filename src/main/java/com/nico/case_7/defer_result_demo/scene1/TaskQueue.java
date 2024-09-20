@@ -50,7 +50,7 @@ public class TaskQueue {
 
         Task task = queue.poll();
 
-        log.info("获得任务:{}",task);
+//        log.info("获得任务:{}",task);
 
         return task;
     }

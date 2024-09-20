@@ -15,7 +15,8 @@ import org.springframework.web.context.request.async.DeferredResult;
  * @description: TODO
  * @date 2022/10/7 18:37
  */
-@RestController
+@RequestMapping("/case_7/scene2")
+@RestController("scene2")
 public class TaskController {
 
     private Logger log = LoggerFactory.getLogger(TaskController.class);

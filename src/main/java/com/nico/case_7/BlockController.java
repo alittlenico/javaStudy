@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author liuyi
  * @version 1.0
- * @description: TODO
+ * @description: block会阻塞住controller接收请求，直到接收结果完成，才会执行下一条语句
  * @date 2022/10/7 17:38
  */
 @RestController
+@RequestMapping("/case_7/BlockController")
 public class BlockController {
 
     private static final Logger log = LoggerFactory.getLogger(BlockController.class);
@@ -21,7 +22,7 @@ public class BlockController {
     @Autowired
     private TaskService taskService;
 
-//    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
     public ResponseMsg<String> getResult(){
 
         log.info("接收请求，开始处理...");
